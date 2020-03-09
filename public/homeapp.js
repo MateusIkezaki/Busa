@@ -31,32 +31,21 @@ const SetUp = async display => {
 SetUp()
 
 const SlideInLeftRight = () => {
-    console.log('animationstarted')
-    if(currentitem > 0) currentitem--
-    //letter.classList.toggle('slide-out-left')
-    SetUp()
-    if(letter.style.animation)
+    if(currentitem > 0 && letter.style.animation == '') 
     {
-        letter.style.animation = ''
-    }
-    else
-    {
+        currentitem--
+        window.setTimeout("letter.style.animation = '';", 4000)
         letter.style.animation = "swipe-left 4s"
     }
-        
+    SetUp()
 }
 const SlideInRightLeft = () => {
-    if(currentitem < rawdata.length - 1) currentitem++
-    console.log('animationstarted')
-    SetUp()
-    //letter.classList.toggle('slide-out-left')
-    if(letter.style.animation)
+    if(currentitem < rawdata.length - 1  && letter.style.animation == '') 
     {
-        letter.style.animation = ''
-    }
-    else
-    {
+        currentitem++
+        window.setTimeout("letter.style.animation = ''; console.log('animation reset') ", 4000)
         letter.style.animation = "swipe-right 4s"
     }
+    SetUp()
 }
 
